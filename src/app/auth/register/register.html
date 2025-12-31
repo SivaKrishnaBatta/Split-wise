@@ -1,1 +1,32 @@
-<p>register works!</p>
+<div class="register-wrapper">
+  <h3>Create Account</h3>
+
+  <form [formGroup]="form">
+
+    <label>Name</label>
+    <input class="form-control" formControlName="name">
+
+    <label>Email</label>
+    <input class="form-control" formControlName="email" >
+
+    <label>Phone</label>
+    <input class="form-control" formControlName="phone">
+
+    <label>Password</label>
+    <input type="password" class="form-control" formControlName="password">
+
+    <label>Confirm Password</label>
+    <input type="password" class="form-control" formControlName="confirmPassword">
+
+    <button class="btn btn-success w-100 mt-3"
+            type="button"
+            [disabled]="loading"
+            (click)="submit()">
+      {{ loading ? 'Registering...' : 'Register' }}
+    </button>
+
+    <p class="text-success mt-2" *ngIf="successMsg">{{ successMsg }}</p>
+    <p class="text-danger mt-2" *ngIf="errorMsg">{{ errorMsg }}</p>
+
+  </form>
+</div>
